@@ -10,10 +10,10 @@ const webpack = require("webpack");
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js", 
+  entry: "./src/index.js",
   output: {
-    filename: "app.min.js", 
-    path: path.resolve(__dirname, "build"), 
+    filename: "app.min.js",
+    path: path.resolve(__dirname, "build"),
   },
   resolve: {
     extensions: [".js", ".css"],
@@ -26,7 +26,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: "babel-loader", 
+        use: "babel-loader",
       },
       {
         test: /\.css$/,
@@ -38,6 +38,10 @@ module.exports = {
         ],
       },
     ],
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, "build"),
+    port: 8080,
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./src/index.html" }),
