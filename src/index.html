@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form</title>
-</head>
-<body>
-  <form action="" class="registration">
-    <input type="text" id="name" class="registration__input">
-    <input type="text" id="surname" class="registration__input">
-    <input type="text" id="patronymic" class="registration__input">
-    <input type="email" id="email" class="registration__input">
-    <input type="password" id="password" class="registration__input">
-    <input type="submit" value="Зарегистрироваться">
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <form action="" class="registration">
+      <div class="registration-group">
+        <label class="registration-label">FullName</label>
+        <div class="registration-group-item">
+          <input
+            type="text"
+            id="name"
+            class="registration__input"
+            placeholder="Name"
+          />
+          <ul class="registration__error-list"></ul>
+        </div>
+        <div class="registration-group-item">
+          <input
+            type="text"
+            id="surname"
+            class="registration__input"
+            placeholder="Surname"
+          />
+          <ul class="registration__error-list"></ul>
+        </div>
+        <div class="registration-group-item">
+          <input
+            type="text"
+            id="patronymic"
+            class="registration__input"
+            placeholder="Patronymic"
+          />
+          <ul class="registration__error-list"></ul>
+        </div>
+      </div>
+      <div class="registration-group">
+        <div class="registration-group-item">
+          <label class="registration-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="registration__input"
+            placeholder="Email"
+          />
+          <ul class="registration__error-list"></ul>
+        </div>
+      </div>
+      <div class="registration-group">
+        <div class="registration-group-item">
+          <label class="registration-label">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="registration__input"
+            placeholder="Password"
+          />
+
+          <ul class="registration__error-list"></ul>
+        </div>
+      </div>
+      <input
+        type="submit"
+        value="Зарегистрироваться"
+        class="registration__button"
+      />
+    </form>
+  </body>
 </html>
