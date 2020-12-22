@@ -2,7 +2,7 @@ body {
   max-width: 1440px;
 }
 
-.registration__input {
+.registration-group-item__input {
   font-size: 16px;
   padding: 10px;
   width: 200px;
@@ -14,7 +14,7 @@ body {
   display: flex;
 }
 
-.registration-group .registration-label {
+.registration-group__label {
   padding-top: 15px;
   width: 100px;
 }
@@ -27,14 +27,14 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   background: rgb(245, 245, 245) linear-gradient(#f4f4f4, #f1f1f1);
-  padding: 12px 42px;
+  padding: 12px 142px;
 }
 
-.registration__input--error {
+.registration-group-item__input--error {
   border: 1px solid red;
 }
 
-.registration__error-list {
+.registration-group-item__error-list {
   list-style: none;
   margin: 0;
   padding-left: 10px;

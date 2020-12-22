@@ -1,15 +1,73 @@
 import { Validate } from './validate';
 
+function generateError(textError) {
+  const error = document.createElement('li');
+  error.innerHTML = textError;
+  return error;
+}
+
 function validateField(element) {
-  if (Validate.checkRequired(element.value)) {
-    element.classList.add('registration__input--error');
-    const groupElement = element.parentElement;
-    const ErrorList = groupElement.getElementsByClassName(
-      'registration__error-list',
-    )[0];
-    const error = document.createElement('li');
-    error.innerHTML = 'The field is required';
+  const groupElement = element.parentElement;
+  const ErrorList = groupElement.getElementsByClassName(
+    'registration-group-item__error-list'
+  )[0];
+  let isValid = true;
+  if (!Validate.checkRequired(element.value)) {
+    isValid = false;
+    const error = generateError('The field is requeired');
     ErrorList.append(error);
+  }
+  if (Validate.hasNumber(element.value)) {
+    isValid = false;
+    const error = generateError('The field is contains a number');
+    ErrorList.append(error);
+  }
+  if (!isValid) {
+    element.classList.add('registration-group-item__input--error');
+  }
+}
+
+function validateFieldEmail(element) {
+  const groupElement = element.parentElement;
+  const ErrorList = groupElement.getElementsByClassName(
+    'registration-group-item__error-list'
+  )[0];
+  let isValid = true;
+  if (!Validate.checkRequired(element.value)) {
+    isValid = false;
+    const error = generateError('The field is required');
+    ErrorList.append(error);
+  }
+  if (!Validate.checkValidEmail(element.value)) {
+    isValid = false;
+    const error = generateError('The field is not email');
+    ErrorList.append(error);
+  }
+  if (!isValid) {
+    element.classList.add('registration-group-item__input--error');
+  }
+}
+
+function validateFieldPassword(element) {
+  const groupElement = element.parentElement;
+  const ErrorList = groupElement.getElementsByClassName(
+    'registration-group-item__error-list'
+  )[0];
+  let isValid = true;
+  if (!Validate.checkRequired(element.value)) {
+    isValid = false;
+    const error = generateError('The field is required');
+    ErrorList.append(error);
+  }
+  if (!Validate.checkValidPassword(element.value)) {
+    isValid = false;
+    const error = generateError(
+      'The field is not password(password is 6 or more)'
+    );
+    ErrorList.append(error);
+  }
+  if (!isValid) {
+    element.classList.add('registration-group-item__input--error');
   }
 }
 
@@ -22,23 +80,27 @@ window.onload = function load() {
     const patronymic = document.querySelector('#patronymic');
     const email = document.querySelector('#email');
     const password = document.querySelector('#password');
+    const fieldInput = document.querySelectorAll(
+      '.registration-group-item__input'
+    );
 
-    const fieldInput = document.querySelectorAll('.registration__input');
     for (let i = 0; i < fieldInput.length; i++) {
-      fieldInput[i].classList.remove('registration__input--error');
+      fieldInput[i].classList.remove('registration-group-item__input--error');
     }
-    const listsError = document.querySelectorAll('.registration__error-list');
+    const listsError = document.querySelectorAll(
+      '.registration-group-item__error-list'
+    );
     for (let i = 0; i < listsError.length; i++) {
-      const error = listsError[i].getElementsByTagName('li');
-      for (let j = 0; j < error.length; j++) {
-        listsError[i].removeChild(error[j]);
+      const errors = listsError[i].getElementsByTagName('li');
+      for (let j = 0; j < errors.length;) {
+        errors[j].parentNode.removeChild(errors[j]);
       }
     }
+
     validateField(name);
     validateField(surname);
     validateField(patronymic);
-    validateField(name);
-    validateField(email);
-    validateField(password);
+    validateFieldEmail(email);
+    validateFieldPassword(password);
   });
 };
