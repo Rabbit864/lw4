@@ -8,7 +8,7 @@ function generateError(textError) {
 
 function validateField(element) {
   const groupElement = element.parentElement;
-  const ErrorList = groupElement.getElementsByClassName(
+  const errorList = groupElement.getElementsByClassName(
     'registration-group-item__error-list'
   )[0];
   let isValid = true;
@@ -29,7 +29,7 @@ function validateField(element) {
 
 function validateFieldEmail(element) {
   const groupElement = element.parentElement;
-  const ErrorList = groupElement.getElementsByClassName(
+  const errorList = groupElement.getElementsByClassName(
     'registration-group-item__error-list'
   )[0];
   let isValid = true;
@@ -50,7 +50,7 @@ function validateFieldEmail(element) {
 
 function validateFieldPassword(element) {
   const groupElement = element.parentElement;
-  const ErrorList = groupElement.getElementsByClassName(
+  const errorList = groupElement.getElementsByClassName(
     'registration-group-item__error-list'
   )[0];
   let isValid = true;
