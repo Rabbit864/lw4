@@ -13,7 +13,7 @@
     "lint:js": "src/"
   },
   "scripts": {
-    "prebuild": "npm run lint:js && npm run lint:css" ,
+    "prebuild": "npm run lint:js && npm run lint:css",
     "build": "webpack",
     "lint:js": "eslint src/**/*.js",
     "lint:css": "stylelint src/css/*.css",

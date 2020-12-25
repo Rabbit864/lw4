@@ -15,12 +15,12 @@ function validateField(element) {
   if (!Validate.checkRequired(element.value)) {
     isValid = false;
     const error = generateError('The field is requeired');
-    ErrorList.append(error);
+    errorList.append(error);
   }
   if (Validate.hasNumber(element.value)) {
     isValid = false;
     const error = generateError('The field is contains a number');
-    ErrorList.append(error);
+    errorList.append(error);
   }
   if (!isValid) {
     element.classList.add('registration-group-item__input--error');
@@ -36,12 +36,12 @@ function validateFieldEmail(element) {
   if (!Validate.checkRequired(element.value)) {
     isValid = false;
     const error = generateError('The field is required');
-    ErrorList.append(error);
+    errorList.append(error);
   }
   if (!Validate.checkValidEmail(element.value)) {
     isValid = false;
     const error = generateError('The field is not email');
-    ErrorList.append(error);
+    errorList.append(error);
   }
   if (!isValid) {
     element.classList.add('registration-group-item__input--error');
@@ -57,14 +57,14 @@ function validateFieldPassword(element) {
   if (!Validate.checkRequired(element.value)) {
     isValid = false;
     const error = generateError('The field is required');
-    ErrorList.append(error);
+    errorList.append(error);
   }
   if (!Validate.checkValidPassword(element.value)) {
     isValid = false;
     const error = generateError(
       'The field is not password(password is 6 or more)'
     );
-    ErrorList.append(error);
+    errorList.append(error);
   }
   if (!isValid) {
     element.classList.add('registration-group-item__input--error');
